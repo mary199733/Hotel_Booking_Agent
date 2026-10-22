@@ -44,7 +44,7 @@ Built at the TechTO hackathon (October 2026) by a team of five. Two of us wrote 
 and configured ElevenLabs and Twilio, got the API keys, shared resources in a team folder,
 pushed code to GitHub and tested the system.
 
-This is my (Maryam's) copy of the project. I pushed it as a single commit, with cleanup and
+This is my (Maryam's) copy of the project. I pushed it as a fresh repo, with cleanup and
 fixes I've made since the event. The original repo was maintained by one teammate, so its
 commit history doesn't show who wrote what. The table below does.
 
