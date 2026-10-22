@@ -37,6 +37,40 @@ Transcripts and prices stay in Python and never go through the AI, so it can't m
 | `tools/extract_info.py` | Uses Claude Haiku to extract hotel, price and reservation # from transcripts. |
 | `tools/tool_parsing.py` | Loads `tool_descriptions.json`. |
 
+## About this repo
+
+Built at the TechTO hackathon (October 2026) by a team of five. Two of us wrote the code:
+**Maryam Issakhani** and **Kevin Bryce**. The other three teammates shaped the idea, set up
+and configured ElevenLabs and Twilio, got the API keys, shared resources in a team folder,
+pushed code to GitHub and tested the system.
+
+This is my (Maryam's) copy of the project. I pushed it as a single commit, with cleanup and
+fixes I've made since the event. The original repo was maintained by one teammate, so its
+commit history doesn't show who wrote what. The table below does.
+
+### Who did what
+
+| Part | Where | Written by |
+|---|---|---|
+| Hotel search (SerpApi) | `search_stays` and its helpers in `tools/tools.py` | Maryam |
+| Reading transcripts with Claude Haiku | `tools/extract_info.py` | Maryam |
+| Earlier rule-based price finder | `extract_lowest_quote` in `tools/tools.py` | Maryam |
+| Confirmation email | `send_confirmation_email` in `tools/pipeline_tools.py` | Maryam |
+| This README | `README.md` | Maryam |
+| Pipeline (saves results, picks the cheapest quote) | rest of `tools/pipeline_tools.py` | Mostly Kevin, partly Maryam |
+| Agent setup and tool loop | `Agent/agent.py` | Kevin |
+| Tool definitions and loading | `tools/tool_descriptions.json`, `tools/tool_parsing.py`, `tool_caller/tool_calls.py` | Kevin |
+| Phone calls (ElevenLabs) | `call_accommodation` in `tools/tools.py` | Kevin |
+| Call recording download | `download_lowest_price_conversation` in `tools/tools.py` | Kevin, with help from the team |
+
+### Changes since the hackathon
+
+All by Maryam:
+
+- Moved the secret keys out of the code and into `Agent/.env` (template: `Agent/.env.example`).
+- Fixed mismatches between the tool names the AI sees (`tools/tool_descriptions.json`) and
+  the Python functions they run (`tool_map` in `Agent/agent.py`).
+
 ## Setup
 
 Requires Python 3.10+.
